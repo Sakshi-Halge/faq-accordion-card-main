@@ -26,7 +26,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  padding: 3rem;
+  padding: 4rem;
   font-family: "Kumbh Sans", sans-serif;
   background-image: linear-gradient(
     to bottom,
@@ -39,17 +39,31 @@ body {
   background-color: #fff;
   border-radius: 2rem;
   max-width: 1000px;
-  min-height: 400px;
   display: flex;
   margin: 7rem auto;
   flex-direction: row;
+  background-image: url("./images/bg-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: -20% center;
+  position: relative;
+}
+
+.box{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-47%,-25%);
+  z-index: 1;
 }
 
 .card-image{
-  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.card-image, .card-text{
+.card-image, .card-content{
   flex: 1;
   border: 1px solid red;
 }
@@ -57,21 +71,76 @@ body {
 .card-image img{
     width: 100%;
     height: auto;
-    max-width: 400px;
+    max-width: 450px;
+    transform: translateX(-13%);
 }
 
+.card-header{
+  font-weight: 700;
+}
 
+.accordion-collapse{
+  display: none;
+}
 
-@media screen and (max-width: 61em) {
+@media screen and (max-width: 1000px) {
+  body{
+    padding:  3rem 1.5rem;
+  }
   .card {
     flex-direction: column;
+    background-image: none;
+    max-width: 600px;
+    background-image: url("./images/bg-pattern-mobile.svg");
+    background-size: 45%;
+    background-position: 55% -2%;
   }
 
-  .card-image,
-  .card-text {
-    
+  .box{
+    display: none;
+  }
+
+  .card-image{
+    justify-content: center;
+   
+    overflow: visible;
+  }
+
+  .card-image img{
+    height: auto;
+    transform:  translateY(-53%);
+  }
+
+  .card-content{
+    margin-top: -5rem;
+  }
+
+
+
+}
+
+@media only screen and (max-width: 768px){
+  .card{
+    max-width: 500px;
+    background-size: 266px;
+    background-position: 56% -2%;
+  }
+  .card-image img{
+    width: auto;
+    height: auto;
   }
 }
+
+@media only screen and (max-width: 490px){
+  .card{
+    
+  }
+  .card-image img{
+    transform: translateX(-5%) translateY(-55%);
+  }
+}
+
+
 
 .attribution {
   font-size: 11px;
