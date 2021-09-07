@@ -5,8 +5,8 @@ const collapse = document.querySelectorAll(".accordion-collapse")
 // acc_header.onClick = () => {
 // }
 
-acc_header[1].addEventListener('click', () => {
+acc_header[4].addEventListener('click', () => {
     console.log("ggsg");
-    collapse[1].classList.toggle("active-accordion-collapse")
+    collapse[4].classList.toggle("active-accordion-collapse")
     cardcontent.classList.toggle("opened-collapse");
 })
