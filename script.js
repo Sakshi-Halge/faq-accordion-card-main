@@ -1,12 +1,27 @@
-const cardcontent = document.querySelector(".card-content")
-const acc_header = document.querySelectorAll(".accordion-header img")
-const collapse = document.querySelectorAll(".accordion-collapse")
+// document.querySelectorAll('.accordion-question').forEach((item) => {
+//     item.addEventListener('click', (event) => {
+//         item.classList.toggle('collapse-open');
+//         console.log('click!');
+//     })
+// })
 
-// acc_header.onClick = () => {
-// }
+const accordion_questions = document.querySelectorAll('.accordion-question');
 
-acc_header[4].addEventListener('click', () => {
-    console.log("ggsg");
-    collapse[4].classList.toggle("active-accordion-collapse")
-    cardcontent.classList.toggle("opened-collapse");
-})
+for (let i = 0; i < accordion_questions.length; i++){
+    accordion_questions[i].addEventListener('click', (event) => {
+        accordionEvent(i);
+    })
+    
+}
+
+const accordionEvent = (i) =>  {
+    accordion_questions[i].classList.toggle('collapse-open');
+    accordion_questions[i].nextElementSibling.classList.toggle('open');
+    for (let j = 0; j < accordion_questions.length; j++){
+        if(j != i){
+            accordion_questions[j].classList.remove('collapse-open');
+            accordion_questions[j].nextElementSibling.classList.remove('open');
+
+        }
+    }
+}

@@ -26,26 +26,27 @@ html {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-top: 10rem;
   font-family: "Kumbh Sans", sans-serif;
   background-image: linear-gradient(
     to bottom,
     var(--soft-violet),
     var(--soft-blue)
   );
+  padding-top: 7rem;
+
 }
 
 .card {
   background-color: #fff;
   border-radius: 32px;
-  width: 60%;
-  min-height: 65%;
-  min-width: 900px;
+  width: 65%;
+  min-height: 500px;
+  min-width: 800px;
+  /* max-height: 920px; */
+  margin: 0 auto;
   display: flex;
   background-image: url("./images/bg-pattern-desktop.svg");
   background-repeat: no-repeat;
@@ -55,10 +56,7 @@ body {
   transition: 350ms ease;
 }
 
-.card-content.opened-collapse{
-  /* min-height: 90%; */
-  /* padding-bottom: 90px; */
-}
+
 
 .box {
   position: absolute;
@@ -70,15 +68,11 @@ body {
 
 .card-image {
   width: 50%;
-  height: 100%;
+  /* min-height: 100%; */
   display: flex;
   align-items: center;
   overflow: hidden;
-}
-
-.card-image,
-.card-content {
-  flex: 1;
+  border : 1px solid red;
 }
 
 .card-image img {
@@ -90,7 +84,7 @@ body {
 
 .card-content {
   width: 50%;
-  height: 100%;
+  min-height: 100%;
   padding-top: 55px;
   padding: 70px 30px 30px 0px;
 }
@@ -105,7 +99,7 @@ body {
 }
 
 .accordion {
-  width: 80%;
+  width: 85%;
   min-height: 60%;
   max-height: 80%;
   margin-top: 20px;
@@ -118,40 +112,53 @@ body {
 
 }
 
-.accordion-header {
-  position: relative;
-}
-
-.accordion-header button {
-  margin-top: 14px;
-}
-
-.accordion-header img {
-  width: 14px;
-  position: absolute;
-  right: 0%;
-  top: 50%;
-  cursor: pointer;
-}
-
 .accordion-collapse {
   display: none;
+  transition: 300ms ease;
+
+}
+
+.accordion-collapse.collapsing{
+
+}
+
+.accordion-collapse.open{
+  display: block;
 }
 
 
 .accordion-question {
+  width: 100%;
   background: transparent;
   border: none;
   cursor: pointer;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 14px;
+  text-align: left;
   color: var(--very-dark-grayish-blue);
-  /* margin-bottom: 12px; */
-  transition: color 120ms ease;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 300ms ease;
+  margin-top: 14px;
+
 }
 
 .accordion-question:hover{
   color: var(--soft-red);
+}
+
+.accordion-question::after{
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-image: url('./images/icon-arrow-down.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex: 0 0 14px;
+  transition: transform 300ms ease;
+
 }
 
 .accordion-question.collapse-open{
@@ -159,6 +166,13 @@ body {
   font-size: 14px;
   color: var(--very-dark-desaturated-blue);
 }
+
+.accordion-question.collapse-open::after{
+  transform: rotate(180deg);
+  margin-top: -8px;
+}
+
+
 
 .accordion-answer {
   width: 94%;
@@ -175,12 +189,12 @@ body {
   }
   .card {
     min-width: 75%;
-    min-height: 90%;
+    /* min-height: 90%; */
     flex-direction: column;
     background-image: none;
     background-image: url("./images/bg-pattern-mobile.svg");
     background-size: 266px;
-    background-position: 54% -3%;
+    background-position: 54% -2%;
   }
 
   .box {
@@ -189,7 +203,7 @@ body {
 
   .card-image {
     width: 100%;
-    max-height: 25%;
+    min-height: 25%;
     justify-content: center;
 
     overflow: visible;
@@ -197,7 +211,7 @@ body {
 
   .card-image img {
     min-width: 300px;
-    transform: translateY(-32%);
+    transform: translateY(-54%);
   }
 
   .card-header {
@@ -206,8 +220,9 @@ body {
   }
   .card-content {
     width: 100%;
-    min-height: 75%;
+    height: 100%;
     padding: 0;
+    margin-top: -80px;
   }
   .accordion {
     /* width: 90%; */
@@ -255,16 +270,14 @@ body {
 }
 
 
-.active-accordion-collapse{
-  display: block;
-}
-
 
 .attribution {
   width: 60%;
   font-size: 12px;
   text-align: center;
   margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
+
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
