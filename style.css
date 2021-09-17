@@ -131,7 +131,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   flex: 0 0 14px;
-  transition: transform 300ms ease;
+  transition: transform 400ms ease;
 }
 
 .accordion-question.collapse-open {
