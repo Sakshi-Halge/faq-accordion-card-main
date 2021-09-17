@@ -99,7 +99,7 @@ body {
 .accordion-collapse{
   overflow: hidden;
   max-height: 0;
-  transition: max-height 8000ms ease;
+  transition: max-height 800ms ease;
 }
 
 
